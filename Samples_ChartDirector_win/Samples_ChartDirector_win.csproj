@@ -93,7 +93,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ChangeLog.txt" />
+    <None Include="ChangeLog" />
     <Content Include="dll\netchartdir.dll" />
     <Content Include="dll\netchartdir.xml" />
   </ItemGroup>
