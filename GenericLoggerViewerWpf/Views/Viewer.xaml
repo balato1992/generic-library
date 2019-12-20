@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="GenericLoggerViewerWpf.Views.Viewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GenericLoggerViewerWpf.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <local:SearchBox x:Name="searchBox"></local:SearchBox>
+        <DataGrid Grid.Row="1" x:Name="grid" Margin="4" HorizontalAlignment="Stretch" AutoGenerateColumns="False" IsReadOnly="True"
+                                      ItemsSource="{Binding DisplayData.View}" >
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="{Binding RowColor}" />
+                    <Setter Property="Foreground" Value="{Binding RowForeColor}" />
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Time" Binding="{Binding StrTime}" SortDirection="Descending" />
+                <DataGridTextColumn Header="Type" Binding="{Binding LogType}" />
+                <DataGridTextColumn Header="Tag" Binding="{Binding Tag}" />
+                <DataGridTextColumn Header="Message" Binding="{Binding Message}" Width="*" />
+                <DataGridTemplateColumn x:Name="columnAppend" Header="Append">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
+                                <Button Content="Click" Click="ShowAppendItem" Visibility="{Binding HasAppend}" Padding="4 2"></Button>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="AppendItem" Binding="{Binding AdditionalItem}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <WrapPanel Grid.Row="2" Name="panelSummary"></WrapPanel>
+    </Grid>
+</UserControl>

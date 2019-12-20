@@ -1,0 +1,13 @@
+﻿<Window x:Class="GenericWpf.Components.Windows.ProgressBarDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:GenericWpf.Components.Windows"
+        xmlns:bases="clr-namespace:GenericWpf.Components.Bases"
+        mc:Ignorable="d"
+        Title="Prograss Bar" Width="500" Height="150"
+        ResizeMode="NoResize" WindowStartupLocation="CenterOwner"
+        Loaded="Window_Loaded">
+    <bases:BaseProgressBar x:Name="progressBar" Proportion="1.2" SizeCoefficient="10"></bases:BaseProgressBar>
+</Window>

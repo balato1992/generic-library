@@ -1,0 +1,53 @@
+﻿
+Pending:
+	FileOrDirectoryBrowser: check file or folder is exist after browse or initialized
+	
+	
+2018/02/12 v1.0.1.4
+	(1) 新增: NestedUserControl 避免 Control 層數過多造成介面無法 Dock 的問題
+2017/10/26
+	(1) 新增: FileOrDirectoryBrowser: EnableKeyIn
+2017/09/12 v1.0.1.3
+	(1) 新增: GenericNumericList: AlwaysDescending
+2017/09/07
+	(1) 新增 GenericNumericList: SetValues()
+	(2) 新增 XmlHelper(string tagName)
+	(3) 修改 XmlHelper(string strInput, bool isPath = true) -> XmlHelper(string strInput, bool isPath)
+2017/09/06
+	(1) 新增 GenericNumericList
+2017/08/07
+	(1) 新增: SortableBindingList: customComparer
+	(1) 新增: DataGridViewHelper: SearchBox
+2017/08/04
+	(1) 修改: GenericListView, n_ListView change namespace
+	(2) 修改: 移出 CheckedItemInfos, GenericListViewItem
+	(3) 修改: GenericDataGridView: 增加 Check box 功能
+2017/08/02
+	(1) 新增: GenericTabControl: HideHeader, ToggleAllTabs
+2017/07/28
+	(1) 修改: AutoResizeColumns() -> AutoResizeColumns(ColumnHeaderAutoResizeStyle headerAutoResize)
+2017/07/25
+	(1) 新增: GenericListView: add HideUncheckedItems
+	(2) 新增: GenericSearchTextBox
+2017/07/06
+	(1) 新增: ControlHelper: 新增 CreateColumn
+	(2) 新增: SortableBindingList
+2017/07/06
+	(1) 新增: GenericListView: 新增 多欄位功能、設定 欄位值、取得SelectedItems、CheckBoxes 顯示與否
+	(2) 新增: GenericListView: 新增 CheckBoxes, CheckBoxesChanged, SelectedIndexChanged, SelectedItemNames, lv_Main_SetItems, lv_Main_GetSelectedItems
+	(3) 新增: GenericListView: 新增 FontChanged += GenericListView_ChangeSize
+	(4) 新增: MyWinModels: GetSizeWithMargin
+2017/06/28
+	(1) 修改: GenericListView: 改變結構，增加 Search 功能
+	(2) 刪除: GenericListView: 刪除 InitialWithOldItems()
+2017/06/27
+	(1) 新增: InitialColumns(), AutoResizeColumns(), lv_Main_CreateColumnHeader()
+2017/06/08 v1.0.1.2
+	(1) GenericListView: Custom Font
+	(2) GenericListView: Custom SelectAllText
+2017/06/08 v1.0.1.1
+	(1) GenericListView: InitialItems sort
+2017/06/08 v1.0.1.0
+	(1) Add GenericListView
+2017/06/08 v1.0.0.0
+	(1) Create FileOrDirectoryBrowser

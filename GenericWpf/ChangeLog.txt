@@ -1,0 +1,16 @@
+﻿
+
+2019/09/05 v1.0.0.6
+	(1) 新增 ImageWithText_New2: 從 ImageWithText 並增加 Hover
+2019/09/05 v1.0.0.3
+	(1) 新增 ImageWithText_New: 從 ImageWithText 改為 Button 並增加 Hover
+2019/04/01 v1.0.0.2
+	(1) 調整 ImageWithText: Click 用法
+2018/12/28
+	(1) BaseProgressBar: 新增 參數 SizeCoefficient
+	(2) ProgressBarDialog: 調整建構子
+2018/12/27 v1.0.0.1
+	(1) ImageWithText: 新增 ImageColumn, ImageRow
+	(2) 新增 Dictionary1
+2018/12/24 v1.0.0.0
+	(1) 專案開始
