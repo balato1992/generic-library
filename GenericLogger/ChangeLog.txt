@@ -1,0 +1,22 @@
+﻿
+
+2019/12/09 v1.0.3.1
+	(1) 新增: SubLogger AddedEvent
+2019/12/09 v1.0.3.0
+	(1) 新增: ConvertToPoolItems 參數 catchAction
+2019/09/20 v1.0.2.6
+	(1) 新增: GLoggerPool
+	(2) 新增: SubLogger
+	(3) 刪除 GLoggerSettings: GenericAppSetting
+2019/08/26 v1.0.2.0
+	(1) 修改: GLoggerModel: Set -> SetToPoolItem, ExecutePoolItem
+2019/08/23 v1.0.1.4
+	(1) 修改: LogInfo: 調整並新增 DateTime 為參數的建構子
+2019/02/25 v1.0.1.3
+	(1) 修改: AddEventHandler: EventHandler<AddEventArgs> -> Action<LogInfo>
+	(2) 修改: LoadFile 回傳資料依時間排序
+2019/01/07 v1.0.1.2
+	(1) 新增 GLoggerModel: GetSubNames
+	(2) 修改: 修正 IsPassSubName 的錯誤
+2019/01/04 v1.0.1.0
+	(1) 修改: 初次進板號

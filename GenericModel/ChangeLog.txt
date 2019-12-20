@@ -1,0 +1,99 @@
+﻿
+
+	Pending
+	    將 GenericModel.cs 中 KSA 移除
+		File 與 Xml 中同時有 Xml Helper 需進行合併
+
+
+		
+2019/11/20 v1.0.5.0
+	(1) 新增: XmlFileHelper: MultiRead
+2019/09/20 v1.0.4.7
+	(1) 新增: FilePathHelper: CheckVaild
+2019/09/16 v1.0.4.6
+	(1) 新增: DataRowHelper: ToEnum
+	(2) 新增: EnumHelper: ListAll, Find
+2019/08/09 v1.0.4.4
+	(1) 新增: DataRowHelper: ToDateTime_Min
+2019/08/09 v1.0.4.3
+	(1) 新增: DataRowHelper: ToDouble_Nan
+2019/04/25 v1.0.4.2
+	(1) 新增: PollingTimer: CountOfElapsed
+2019/03/18 v1.0.4.1
+	(1) 修改: XmlFileHelper: Rewrite 調整為多 descendantName
+	(2) 新增: XmlFileHelper: FilePath
+2019/03/18 v1.0.4.0			*** 大幅修正 ***
+	(1) 修改: XmlFileHelper: 修正 Read, StaticRead 為讀取所有子孫(所有代)的問題 -> 僅讀取子代(1代)
+2019/02/27 v1.0.3.4
+	(1) 新增: PollingTimer
+2018/11/12 GenericModel v1.0.3.3
+	(1) 修改: 調整 XmlFileHelper
+2018/11/02 GenericModel v1.0.3.2
+	(1) 新增: CryptographyHelper: CreateMD5
+2018/09/13 GenericModel v1.0.3.1
+	(1) 修改: XmlFileHelper: 移除建構子
+2018/09/13 GenericModel v1.0.3.0
+	(1) 新增: MakeValidFileName
+2018/09/13 GenericModel v1.0.2.9
+	(1) 移除 newtonsoft json
+2018/07/03 GenericModel v1.0.2.8
+	(1) 新增: EnumHelper
+2018/04/19 GenericModel v1.0.2.7
+	(1) 新增: LawAbidingFloatConverter
+	(2) 修改: 函式名修改
+2018/04/19 GenericModel-V01.0.2.6
+	(1) 修改: File.XmlHelper -> File.XmlFileHelper，修改使用方式
+2017/12/05 GenericModel-V01.0.2.5
+	(1) 新增: FileSizeControl
+2017/11/06 GenericModel-V01.0.2.4
+	(1) 修改: ConverterHelper refine
+2017/11/06 GenericModel-V01.0.2.3
+	(1) 修改: HashHelper 避免輸入 obj 為 null
+2017/11/06 GenericModel-V01.0.2.2
+	(1) 新增: FilePathHelper: ReplaceInvaildChars
+2017/10/25
+	(1) 修改: 更新 GenericModel
+2017/09/15
+	(1) 修改: 移除函式中 GenericModel.LOCK()
+	(2) 新增: NumberHelper: LimitToUpperBound, LimitToLowerBound
+2017/08/30 GenericModel-V01.0.2.1
+	(1) 新增: ProgramStackHelper
+2017/08/30 GenericModel-V01.0.2.0
+	(1) 修改: 更新 GenericModel
+2017/08/28
+	(1) 新增: GenericModel
+	(2) 修改: SettingHelper -> PropertiesInAppSettings, PropertyInfos, PropertyInitialInfo, Settings
+	(3) 刪除: Serializer
+2017/08/25
+	(1) 新增: DataRowHelper
+	(2) 新增: DataTableHelper: NullOrDBNull
+	(3) 修改: static public -> public static
+	(4) 刪除: 移除 NewtonsoftJsonHelper
+	(5) 刪除: 移除 BaseCommandXml
+	(6) 刪除: 移除 XmlCommandHelper
+2017/08/07
+	(1) 刪除: DataTableHelper: FindFirstRowDataByColumnValue
+2017/08/03
+	(1) 新增 ObjectCopier
+2017/07/21
+	(1) 新增 ReflectionUtility: 用於取得 property name
+2017/06/28
+	(1) 優化檔案結構
+	(2) StringHelper: NaturalStringComparer 增加示例，排序時分別大小寫字母
+2017/06/26
+	(1) XmlCommandHelper add exception manage in public functions
+2017/06/26
+	(1) Set BaseCommandXml Obsolete
+2017/06/23
+	(1) 新增 DictionaryHelper: RenameKey
+	(2) 新增 StringHelper: NaturalStringComparer
+2017/06/22
+	(1) XmlCommandHelper: 新增多組函式
+	(2) XmlHelper: 新增多組函式
+2017/05/31 GenericModel-V01.0.1.0
+	(1) 修改: 結構調整
+	(2) 參考 BaseCommandXml.cs 改動程式碼
+	(3) XmlCommand 主函式改為 XmlCommandHelper
+2017/05/31 GenericModel-V01.0.0.1
+	(1) XmlHelper 新增: ConcatWithRoot
+	(2) XmlHelper 修改: CreateWithRoot -> CreateTreeNodesWithRoot

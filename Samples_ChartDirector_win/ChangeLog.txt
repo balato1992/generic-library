@@ -1,0 +1,14 @@
+﻿ 
+
+fst
+20170316 - there are two LicenseCodes in code
+
+
+v00.01.00
+20170316 - Set backcolor or chart back color
+20170316 - Two Chart line
+20170316 - Set test SetLicenseCode (it should remove when don't testing)
+20170316 - Add Custom Sample, click event, ClickEventStruct
+20170316 - Add Line Chart Sample
+20170316 - Add Clickable Chart Sample
+20170316 - Add Symble Line Chart Sample

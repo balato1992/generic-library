@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8D340B7E-A6B0-49F5-8338-D295A73E8EAF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GenericWinForm4_5</RootNamespace>
+    <AssemblyName>GenericWinForm4_5</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\DataGridViewHelper.cs" />
+    <Compile Include="Model\GenericWinModels.cs" />
+    <Compile Include="Model\SortableBindingList.cs" />
+    <Compile Include="Model\TabControlHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\DoSomethingWithLoadingForm.cs" />
+    <Compile Include="Views\FileOrDirectoryBrowser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\FileOrDirectoryBrowser.Designer.cs">
+      <DependentUpon>FileOrDirectoryBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GenericDataGridViews\CompleteItemList.cs" />
+    <Compile Include="Views\GenericDataGridViews\GenericDataGridView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\GenericDataGridViews\GenericDataGridView.Designer.cs">
+      <DependentUpon>GenericDataGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GenericDataGridViews\n_DataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\GenericDataGridViews\n_DataGridView.Designer.cs">
+      <DependentUpon>n_DataGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GenericListViews\CheckedItemInfos.cs" />
+    <Compile Include="Views\GenericListViews\GenericListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\GenericListViews\GenericListView.Designer.cs">
+      <DependentUpon>GenericListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GenericListViews\GenericListViewItem.cs" />
+    <Compile Include="Views\GenericListViews\n_ListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\GenericListViews\n_ListView.Designer.cs">
+      <DependentUpon>n_ListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GenericNumericList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\GenericNumericList.Designer.cs">
+      <DependentUpon>GenericNumericList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GenericSearchTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\GenericSearchTextBox.Designer.cs">
+      <DependentUpon>GenericSearchTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GenericTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\GenericTabControl.Designer.cs">
+      <DependentUpon>GenericTabControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoadingDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LoadingDialogForm.designer.cs">
+      <DependentUpon>LoadingDialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NestedUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ChangeLog" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\FileOrDirectoryBrowser.resx">
+      <DependentUpon>FileOrDirectoryBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GenericDataGridViews\GenericDataGridView.resx">
+      <DependentUpon>GenericDataGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GenericListViews\GenericListView.resx">
+      <DependentUpon>GenericListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GenericNumericList.resx">
+      <DependentUpon>GenericNumericList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoadingDialogForm.resx">
+      <DependentUpon>LoadingDialogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoadingDialogForm.zh-TW.resx">
+      <DependentUpon>LoadingDialogForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GenericModel\GenericModel.csproj">
+      <Project>{55acfcb5-0fff-4aed-a428-15d3239af90e}</Project>
+      <Name>GenericModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
