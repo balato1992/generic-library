@@ -88,6 +88,10 @@
       <Project>{36945045-79DB-45F0-9BBC-E560F31D8E6F}</Project>
       <Name>GenericLogger</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Samples_NewtonsoftJson\Samples_NewtonsoftJson.csproj">
+      <Project>{cc248063-9cd9-476d-95ad-e755f8282b56}</Project>
+      <Name>Samples_NewtonsoftJson</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
