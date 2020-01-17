@@ -141,5 +141,6 @@
   <ItemGroup>
     <None Include="ChangeLog" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

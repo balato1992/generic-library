@@ -110,6 +110,7 @@
     <Resource Include="Images\baseline_check_black_18dp.png" />
     <Resource Include="Images\baseline_close_black_18dp.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
