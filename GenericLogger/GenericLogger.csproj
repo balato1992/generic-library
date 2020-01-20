@@ -48,7 +48,6 @@
     <Compile Include="GLoggerManager.cs" />
     <Compile Include="GLoggerPool.cs" />
     <Compile Include="GLoggerSettings.cs" />
-    <Compile Include="GLoggerSettings_.cs" />
     <Compile Include="GLoggerModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubLogger.cs" />

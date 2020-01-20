@@ -16,7 +16,7 @@ namespace GenericLogger
 
         public GLoggerManager(Func<object, string> serializer, Func<string, Type, object> deserializer, GLoggerSettings messageSetting, GLoggerSettings debugSetting)
         {
-            if(messageSetting.FolderPath == debugSetting.FolderPath)
+            if (messageSetting.FolderPath == debugSetting.FolderPath)
             {
                 messageSetting.FolderPath += "1";
                 debugSetting.FolderPath += "2";
@@ -42,7 +42,6 @@ namespace GenericLogger
 
         public SubLogger CreateSubLogger(string tag)
         {
-            DictErrorCount.Add(tag, 0);
 
             SubLogger subLogger = new SubLogger(tag, tag, _MessageModel.Data_Put, _DebugModel.Data_Put);
             subLogger.AddedEvent += (LogInfo obj) =>
@@ -51,6 +50,10 @@ namespace GenericLogger
                 {
                     string tagName = obj.Tag;
 
+                    if (!DictErrorCount.ContainsKey(tagName))
+                    {
+                        DictErrorCount.Add(tagName, 0);
+                    }
                     DictErrorCount[tagName] += 1;
                 }
             };
