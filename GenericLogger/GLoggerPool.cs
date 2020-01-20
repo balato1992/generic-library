@@ -36,7 +36,7 @@ namespace GenericLogger
             _LockError = new object();
             _LastErrorTime = DateTime.MinValue;
 
-            UseManualLog = true;
+            UseManualLog = false;
             OverCount = 100 * 1000;
         }
 

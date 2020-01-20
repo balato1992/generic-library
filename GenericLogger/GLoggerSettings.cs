@@ -14,7 +14,7 @@ namespace GenericLogger
 
         public GLoggerSettings()
         {
-            FolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Data\Log\");
+            FolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Data\Log");
             FileEncryption = false;
             FileEncryptionKey = null;
             FileEncryptionIV = null;

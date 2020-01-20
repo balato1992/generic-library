@@ -39,12 +39,12 @@ namespace Samples_Logger
             SubLogger1 = Manager.CreateSubLogger("TestSubLogger1");
             SubLogger2 = Manager.CreateSubLogger("TestSubLogger2");
 
-            var funcs = Manager.SetManualAndGetFunc();
+            //var funcs = Manager.SetManualAndGetFunc();
 
-            _Timer1 = CreateTimer(funcs.Item1);
-            _Timer2 = CreateTimer(funcs.Item2);
-            _Timer3 = CreateTimer(funcs.Item3);
-            _Timer4 = CreateTimer(funcs.Item4);
+            //_Timer1 = CreateTimer(funcs.Item1);
+            //_Timer2 = CreateTimer(funcs.Item2);
+            //_Timer3 = CreateTimer(funcs.Item3);
+            //_Timer4 = CreateTimer(funcs.Item4);
         }
         private System.Timers.Timer CreateTimer(Action action)
         {
