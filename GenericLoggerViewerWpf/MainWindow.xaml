@@ -16,24 +16,33 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
+                
                 <Label VerticalAlignment="Center" Margin="16 0 0 0">License:</Label>
                 <TextBox Grid.Column="1" VerticalAlignment="Center" Margin="8" Width="200" x:Name="tbLicense" />
-                
-                <Label Grid.Row="1" VerticalAlignment="Center" Margin="16 0 0 0">Path1:</Label>
-                <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="8" Width="200" x:Name="tbPath1" />
-                <CheckBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" x:Name="cbPath1En"></CheckBox>
-                
-                <Label Grid.Row="2" VerticalAlignment="Center" Margin="16 0 0 0">Path2:</Label>
-                <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="8" Width="200" x:Name="tbPath2" />
-                <CheckBox Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" x:Name="cbPath2En"></CheckBox>
 
-                <Button Grid.Row="3" Grid.ColumnSpan="3" Click="btnSubmit_Click">Submit</Button>
+                <Label Grid.Row="1" VerticalAlignment="Center" Margin="16 0 0 0">Encryption Key:</Label>
+                <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="8" Width="200" x:Name="tbEncryKey" />
+
+                <Label Grid.Row="2" VerticalAlignment="Center" Margin="16 0 0 0">Encryption IV:</Label>
+                <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="8" Width="200" x:Name="tbEncryIV" />
+
+                <Label Grid.Row="3" VerticalAlignment="Center" Margin="16 0 0 0">Path1:</Label>
+                <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Margin="8" Width="200" x:Name="tbPath1" />
+                <CheckBox Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" x:Name="cbPath1En"></CheckBox>
+                
+                <Label Grid.Row="4" VerticalAlignment="Center" Margin="16 0 0 0">Path2:</Label>
+                <TextBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Margin="8" Width="200" x:Name="tbPath2" />
+                <CheckBox Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" x:Name="cbPath2En"></CheckBox>
+
+                <Button Grid.Row="5" Grid.ColumnSpan="3" Click="btnSubmit_Click">Submit</Button>
             </Grid>
         </Grid>
     </Grid>

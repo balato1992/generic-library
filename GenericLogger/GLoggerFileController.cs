@@ -14,6 +14,7 @@ namespace GenericLogger
     {
         private static string _DateFormat = "yyyy-MM-dd_HH";
 
+        #region locker
         private ConcurrentDictionary<string, LockerItem> _Lockers { get; set; } = new ConcurrentDictionary<string, LockerItem>();
         private int _LockerClearCount { get; set; } = 0;
         private void _ClearLockerTime()
@@ -47,28 +48,20 @@ namespace GenericLogger
             item.Time = DateTime.Now;
             return item.Locker;
         }
+        #endregion locker
+
+        private Func<object, string> _Serializer { get; set; }
+        private Func<string, Type, object> _Deserializer { get; set; }
+
+        internal GLoggerFileController(Func<object, string> serializer, Func<string, Type, object> deserializer)
+        {
+            _Serializer = serializer;
+            _Deserializer = deserializer;
+        }
 
 
-        //public void WriteToFile(Func<object, string> serializer, string folderPath, LogInfo ld,
-        //    bool isEncryption, string encryptionKey, string encryptionIV)
-        //{
-        //    string serializeObj = GetSerializeObj(serializer, ld, isEncryption, encryptionKey, encryptionIV);
-
-        //    string filePath = GetPath(folderPath, ld.Time, ld.SubName);
-
-        //    _ClearLockerTime();
-        //    lock (_GetLocker(filePath))
-        //    {
-        //        FilePathHelper.CreateFileAndFolder(filePath);
-        //        using (StreamWriter sw = File.AppendText(filePath))
-        //        {
-        //            sw.WriteLine(serializeObj);
-        //        }
-        //    }
-        //}
-
-        public Dictionary<string, List<string>> CreatePoolItems(IEnumerable<LogInfo> lis, string folderPath,
-            Func<object, string> serializer, bool isEncryption, string encryptionKey, string encryptionIV, Action<Exception, string> catchAction)
+        public Dictionary<string, List<string>> CreatePoolItems(string folderPath, bool isEncryption, string encryptionKey, string encryptionIV,
+            IEnumerable<LogInfo> lis, Action<Exception, string> catchAction)
         {
             Dictionary<string, List<string>> pool = new Dictionary<string, List<string>>();
 
@@ -77,7 +70,7 @@ namespace GenericLogger
                 try
                 {
                     string filePath = GetPath(folderPath, li.Time, li.SubName);
-                    string serializeObj = GetSerializeObj(serializer, li, isEncryption, encryptionKey, encryptionIV);
+                    string serializeObj = GetSerializeObj(_Serializer, li, isEncryption, encryptionKey, encryptionIV);
 
                     if (!pool.ContainsKey(filePath))
                     {
@@ -151,7 +144,7 @@ namespace GenericLogger
             return filePath;
         }
 
-        public List<LogInfo> ReadFromFolder(string folderPath, Func<string, Type, object> deserializer, Func<string, string> decrypt, LogInfoFilter logInfoFilter, int maxCount)
+        public List<LogInfo> ReadFromFolder(string folderPath, string encryptionKey, string encryptionIV, LogInfoFilter logInfoFilter, int maxCount)
         {
             if (!Directory.Exists(folderPath))
             {
@@ -180,7 +173,11 @@ namespace GenericLogger
             List<LogInfo> listLogData = new List<LogInfo>();
             foreach (string fileName in availableFileNames)
             {
-                List<LogInfo> dataInFile = _ReadFromFile(fileName, deserializer, decrypt, logInfoFilter, maxCount - listLogData.Count);
+                List<LogInfo> dataInFile = _ReadFromFile(fileName, _Deserializer,
+                    (string strSerializeInfo) =>
+                    {
+                        return CryptographyHelper.DecryptAES256(strSerializeInfo, encryptionKey, encryptionIV);
+                    }, logInfoFilter, maxCount - listLogData.Count);
                 listLogData.AddRange(dataInFile);
 
                 if (listLogData.Count > maxCount)

@@ -36,10 +36,8 @@ namespace Sample
             this.label_GenericModel = new System.Windows.Forms.Label();
             this.label_GenericWinForm = new System.Windows.Forms.Label();
             this.label_GenericWinForm4_5 = new System.Windows.Forms.Label();
-            this.label_LoggerHelper = new System.Windows.Forms.Label();
             this.btn_Other = new System.Windows.Forms.Button();
             this.genericWinFormItems1 = new MyModelSample.View._styles.GenericWinFormItems();
-            this.btn_GenericLogger = new System.Windows.Forms.Button();
             this.btn_PollingTimer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -127,17 +125,6 @@ namespace Sample
             this.label_GenericWinForm4_5.TabIndex = 1;
             this.label_GenericWinForm4_5.Text = "GenericWinForm4_5";
             // 
-            // label_LoggerHelper
-            // 
-            this.label_LoggerHelper.AutoSize = true;
-            this.label_LoggerHelper.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_LoggerHelper.ForeColor = System.Drawing.Color.Black;
-            this.label_LoggerHelper.Location = new System.Drawing.Point(759, 37);
-            this.label_LoggerHelper.Name = "label_LoggerHelper";
-            this.label_LoggerHelper.Size = new System.Drawing.Size(114, 19);
-            this.label_LoggerHelper.TabIndex = 1;
-            this.label_LoggerHelper.Text = "LoggerHelper";
-            // 
             // btn_Other
             // 
             this.btn_Other.AutoSize = true;
@@ -163,23 +150,6 @@ namespace Sample
             this.genericWinFormItems1.Size = new System.Drawing.Size(196, 285);
             this.genericWinFormItems1.TabIndex = 4;
             // 
-            // btn_GenericLogger
-            // 
-            this.btn_GenericLogger.AutoSize = true;
-            this.btn_GenericLogger.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.btn_GenericLogger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_GenericLogger.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_GenericLogger.ForeColor = System.Drawing.Color.White;
-            this.btn_GenericLogger.Location = new System.Drawing.Point(763, 90);
-            this.btn_GenericLogger.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_GenericLogger.Name = "btn_GenericLogger";
-            this.btn_GenericLogger.Size = new System.Drawing.Size(198, 43);
-            this.btn_GenericLogger.TabIndex = 0;
-            this.btn_GenericLogger.TabStop = false;
-            this.btn_GenericLogger.Text = "Generic Logger";
-            this.btn_GenericLogger.UseVisualStyleBackColor = false;
-            this.btn_GenericLogger.Click += new System.EventHandler(this.btn_GenericLogger_Click);
-            // 
             // btn_PollingTimer
             // 
             this.btn_PollingTimer.AutoSize = true;
@@ -204,11 +174,9 @@ namespace Sample
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(242)))), ((int)(((byte)(253)))));
             this.ClientSize = new System.Drawing.Size(1067, 389);
             this.Controls.Add(this.genericWinFormItems1);
-            this.Controls.Add(this.label_LoggerHelper);
             this.Controls.Add(this.label_GenericWinForm4_5);
             this.Controls.Add(this.label_GenericWinForm);
             this.Controls.Add(this.label_GenericModel);
-            this.Controls.Add(this.btn_GenericLogger);
             this.Controls.Add(this.btn_PollingTimer);
             this.Controls.Add(this.btn_Other);
             this.Controls.Add(this.button_XmlHelper);
@@ -230,10 +198,8 @@ namespace Sample
         private System.Windows.Forms.Label label_GenericModel;
         private System.Windows.Forms.Label label_GenericWinForm;
         private System.Windows.Forms.Label label_GenericWinForm4_5;
-        private System.Windows.Forms.Label label_LoggerHelper;
         private MyModelSample.View._styles.GenericWinFormItems genericWinFormItems1;
         private System.Windows.Forms.Button btn_Other;
-        private System.Windows.Forms.Button btn_GenericLogger;
         private System.Windows.Forms.Button btn_PollingTimer;
     }
 }

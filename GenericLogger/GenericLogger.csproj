@@ -45,6 +45,7 @@
     <Compile Include="DataStructures\LogInfoFilter.cs" />
     <Compile Include="DataStructures\LogTypes.cs" />
     <Compile Include="GLoggerFileController.cs" />
+    <Compile Include="GLoggerManager.cs" />
     <Compile Include="GLoggerPool.cs" />
     <Compile Include="GLoggerSettings.cs" />
     <Compile Include="GLoggerSettings_.cs" />

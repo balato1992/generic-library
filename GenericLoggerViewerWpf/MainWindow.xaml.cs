@@ -6,18 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GenericLoggerViewerWpf
 {
@@ -35,6 +25,8 @@ namespace GenericLoggerViewerWpf
         {
             InitializeComponent();
 
+            tbEncryKey.Text = Properties.Settings.Default.EncryptionKey;
+            tbEncryIV.Text = Properties.Settings.Default.EncryptionIV;
             tbPath1.Text = Properties.Settings.Default.Path1;
             cbPath1En.IsChecked = Properties.Settings.Default.Path1Encryption;
             tbPath2.Text = Properties.Settings.Default.Path2;
@@ -88,15 +80,10 @@ namespace GenericLoggerViewerWpf
             GLoggerModel model = null;
             if (Directory.Exists(path))
             {
-                model = new GLoggerModel((object value) =>
-                {
-                    return JsonConvert.SerializeObject(value, Formatting.None);
-                }, (string value, Type type) =>
-                {
-                    return JsonConvert.DeserializeObject(value, type);
-                });
-                model.Setting.FileEncryption = encryption;
-                model.Setting.FolderPath = path;
+                model = new GLoggerModel(
+                    (object value) => { return JsonConvert.SerializeObject(value, Formatting.None); },
+                    (string value, Type type) => { return JsonConvert.DeserializeObject(value, type); },
+                    new GLoggerSettings(path, true, tbEncryKey.Text, tbEncryIV.Text));
             }
             return model;
         }
@@ -124,11 +111,15 @@ namespace GenericLoggerViewerWpf
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
             string license = tbLicense.Text;
+            string encryKey = tbEncryKey.Text;
+            string encryIV = tbEncryIV.Text;
             string path1 = tbPath1.Text;
             bool path1Encryption = cbPath1En.IsChecked == true;
             string path2 = tbPath2.Text;
             bool path2Encryption = cbPath2En.IsChecked == true;
 
+            Properties.Settings.Default.EncryptionKey = encryKey;
+            Properties.Settings.Default.EncryptionIV = encryIV;
             Properties.Settings.Default.Path1 = path1;
             Properties.Settings.Default.Path1Encryption = path1Encryption;
             Properties.Settings.Default.Path2 = path2;

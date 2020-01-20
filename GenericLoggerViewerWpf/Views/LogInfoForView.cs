@@ -8,7 +8,7 @@ namespace GenericLoggerViewerWpf.Views
 {
     public class LogInfoForView : LogInfo
     {
-        public string StrTime => Time.ToString("yyyy-MM-dd HH:mm:ss");
+        public string StrTime => Time.ToString("yyyy-MM-dd HH:mm:ss.fff");
 
         public LogInfoForView(LogInfo info) : base(info)
         {

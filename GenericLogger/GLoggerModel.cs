@@ -11,59 +11,58 @@ namespace GenericLogger
     {
         public event Action<LogInfo> AddEventHandler;
 
-        public GLoggerSettings Setting { get; set; }
+        private GLoggerSettings _Setting { get; set; }
         private GLoggerFileController _LoggerFileController { get; set; }
-        private Func<object, string> _Serializer { get; set; }
-        private Func<string, Type, object> _Deserializer { get; set; }
+        private GLoggerPool _LoggerPool { get; set; }
 
-        public GLoggerModel(Func<object, string> serializer, Func<string, Type, object> deserializer)
+        public GLoggerModel(Func<object, string> serializer, Func<string, Type, object> deserializer) : this(serializer, deserializer, new GLoggerSettings())
         {
-            Setting = new GLoggerSettings();
-            _LoggerFileController = new GLoggerFileController();
-            _Serializer = serializer;
-            _Deserializer = deserializer;
+        }
+        public GLoggerModel(Func<object, string> serializer, Func<string, Type, object> deserializer, GLoggerSettings settings)
+        {
+            _Setting = settings;
+            _LoggerFileController = new GLoggerFileController(serializer, deserializer);
+        }
+        public GLoggerModel(Func<object, string> serializer, Func<string, Type, object> deserializer, GLoggerSettings settings, LogOverCount overCountLog)
+        {
+            _Setting = settings;
+            _LoggerFileController = new GLoggerFileController(serializer, deserializer);
+            _LoggerPool = new GLoggerPool(settings.BackupFilePath, overCountLog);
         }
 
-        //public void Set(LogInfo ld)
-        //{
-        //    _LoggerFileController.WriteToFile(_Serializer, Setting.FolderPath, ld, Setting.FileEncryption, Setting.FileEncryptionKey, Setting.FileEncryptionIV);
-
-        //    AddEventHandler?.Invoke(ld);
-        //}
-
-        public Dictionary<string, List<string>> ConvertToPoolItems(IEnumerable<LogInfo> lis, Action<Exception, string> catchAction = null)
+        #region pool
+        public bool UseManualLog
         {
-            if (catchAction == null)
-            {
-                catchAction = (Exception ex, string msg) =>
-                {
-                    throw ex;
-                };
-            }
-
-            foreach (LogInfo li in lis)
-            {
-                try
-                {
-                    AddEventHandler?.Invoke(li);
-                }
-                catch (Exception ex)
-                {
-                    catchAction?.Invoke(ex, "in AddEventHandler");
-                }
-            }
-
-            return _LoggerFileController.CreatePoolItems(lis, Setting.FolderPath,
-                _Serializer, Setting.FileEncryption, Setting.FileEncryptionKey, Setting.FileEncryptionIV, catchAction);
+            get { return _LoggerPool.UseManualLog; }
+            set { _LoggerPool.UseManualLog = value; }
         }
-        public void SaveFromPoolItems(Dictionary<string, List<string>> data)
+        public int OverCount
         {
-            _LoggerFileController.WritePoolItems(data);
+            get { return _LoggerPool.OverCount; }
+            set { _LoggerPool.OverCount = value; }
         }
+        public void Data_Put(LogInfo li)
+        {
+            _LoggerPool.Put(li);
+        }
+
+        public void Data_Convert()
+        {
+            _LoggerPool.Convert(_LoggerFileController, _Setting, AddEventHandler);
+        }
+        public void Data_Write()
+        {
+            _LoggerPool.Write(_LoggerFileController);
+        }
+        public void Data_WriteAtOnce(LogInfo li, Action<Exception, string> catchAction = null)
+        {
+            _LoggerPool.WriteAtOnce(_LoggerFileController, _Setting, AddEventHandler, li, catchAction);
+        }
+        #endregion pool
 
         public List<string> GetSubNames()
         {
-            return _LoggerFileController.GetFolderSubNames(Setting.FolderPath, new LogInfoFilter())
+            return _LoggerFileController.GetFolderSubNames(_Setting.FolderPath, new LogInfoFilter())
                 .ConvertAll(o => Path.GetFileNameWithoutExtension(o))
                 .Distinct()
                 .ToList();
@@ -74,11 +73,7 @@ namespace GenericLogger
             try
             {
                 List<LogInfo> dataInFolder =
-                    _LoggerFileController.ReadFromFolder(Setting.FolderPath, _Deserializer,
-                    (string strSerializeInfo) =>
-                    {
-                        return CryptographyHelper.DecryptAES256(strSerializeInfo, Setting.FileEncryptionKey, Setting.FileEncryptionIV);
-                    },
+                    _LoggerFileController.ReadFromFolder(_Setting.FolderPath, _Setting.FileEncryptionKey, _Setting.FileEncryptionIV,
                     new LogInfoFilter(dtStart, dtEnd, logTypes, subName), maxCount);
 
                 return dataInFolder;

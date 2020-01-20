@@ -70,5 +70,29 @@ namespace GenericLoggerViewerWpf.Properties {
                 this["Path2Encryption"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("12345678901234567890123456789012")]
+        public string EncryptionKey {
+            get {
+                return ((string)(this["EncryptionKey"]));
+            }
+            set {
+                this["EncryptionKey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1234567890abcdef")]
+        public string EncryptionIV {
+            get {
+                return ((string)(this["EncryptionIV"]));
+            }
+            set {
+                this["EncryptionIV"] = value;
+            }
+        }
     }
 }

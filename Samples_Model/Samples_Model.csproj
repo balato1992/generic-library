@@ -122,12 +122,6 @@
     </Compile>
     <Compile Include="View\GenericWinFormSample\LoadingBar.cs" />
     <Compile Include="View\GenericWinForm_4.5Sample\LoadingBar4_5.cs" />
-    <Compile Include="View\LoggerHelperSample\GenericLoggerSample.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\LoggerHelperSample\GenericLoggerSample.Designer.cs">
-      <DependentUpon>GenericLoggerSample.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\GenericModelSample\XmlHelperSample.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,7 +1,6 @@
 ﻿using GenericModel.Other;
 using MyModelSample.View;
 using MyModelSample.View.GenericModelSample;
-using MyModelSample.View.LoggerHelperSample;
 using System;
 using System.Windows.Forms;
 
@@ -36,11 +35,6 @@ namespace Sample
         private void button_loadingBar45_Click(object sender, EventArgs e)
         {
             LoadingBar4_5.Test(this);
-        }
-
-        private void btn_GenericLogger_Click(object sender, EventArgs e)
-        {
-            new GenericLoggerSample().Show();
         }
     }
 
