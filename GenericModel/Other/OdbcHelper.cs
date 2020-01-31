@@ -32,6 +32,10 @@ namespace GenericModel.Other
         {
             return DoReadAll(_Log, _ConnectionString, sql, preAction, actionReader);
         }
+        protected int DoReadAllSeparate<T>(string sql1, string sql2, uint maxCount, List<T> data, Action<OdbcDataReader> actionReader)
+        {
+            return DoReadAllSeparate(_Log, _ConnectionString, sql1, sql2, maxCount, data, actionReader);
+        }
         #region static
         private static string CreateOdbcConnectionString(string dsn, string id, string password)
         {
