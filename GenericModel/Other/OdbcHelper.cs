@@ -197,10 +197,50 @@ namespace GenericModel.Other
         #endregion command
 
         #region Convert
+        private static bool TryConvertValue<T>(LogFunc log, object obj, out T outValue, T defaultValue = default(T))
+        {
+            try
+            {
+                outValue = (T)Convert.ChangeType(obj, typeof(T));
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                log?.Invoke(ex);
+                outValue = defaultValue;
+
+                return false;
+            }
+        }
+        private static T? ConvertToNull<T>(LogFunc log, object obj) where T : struct
+        {
+            try
+            {
+                return (T)Convert.ChangeType(obj, typeof(T));
+            }
+            catch (Exception ex)
+            {
+                log?.Invoke(ex);
+
+                return null;
+            }
+        }
+
         private bool TryConvertValue<T>(object obj, out T outValue, T defaultValue = default(T))
         {
             return TryConvertValue(_Log, obj, out outValue, defaultValue);
         }
+        public T? ConvertToNull<T>(object obj) where T : struct
+        {
+            return ConvertToNull<T>(_Log, obj);
+        }
+        public T ConvertTo<T>(object obj)
+        {
+            return (T)Convert.ChangeType(obj, typeof(T));
+        }
+
+        #region specific
         public bool ConvertToString(object obj, out string outValue, string defaultValue = null)
         {
             return TryConvertValue(obj, out outValue, defaultValue);
@@ -242,23 +282,8 @@ namespace GenericModel.Other
             outValue = defaultValue;
             return false;
         }
+        #endregion specific
 
-        private static bool TryConvertValue<T>(LogFunc log, object obj, out T outValue, T defaultValue = default(T))
-        {
-            try
-            {
-                outValue = (T)Convert.ChangeType(obj, typeof(T));
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                log?.Invoke(ex);
-                outValue = defaultValue;
-
-                return false;
-            }
-        }
         #endregion Convert
 
         public static string Sql_MakeTableAlias(string tableName, List<string> names, string between = "@@")
