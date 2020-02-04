@@ -205,13 +205,18 @@ namespace GenericModel.Other
         {
             try
             {
+                if (obj == DBNull.Value)
+                {
+                    obj = null;
+                }
+
                 outValue = (T)Convert.ChangeType(obj, typeof(T));
 
                 return true;
             }
             catch (Exception ex)
             {
-                log?.Invoke(ex);
+                log?.Invoke(ex, $"@type: '{typeof(T)}', obj: '{obj}'@");
                 outValue = defaultValue;
 
                 return false;
@@ -221,11 +226,21 @@ namespace GenericModel.Other
         {
             try
             {
+                if (obj == DBNull.Value)
+                {
+                    obj = null;
+                }
+
+                if (obj == null)
+                {
+                    return null;
+                }
+
                 return (T)Convert.ChangeType(obj, typeof(T));
             }
             catch (Exception ex)
             {
-                log?.Invoke(ex);
+                log?.Invoke(ex, $"@type: '{typeof(T)}', obj: '{obj}'@");
 
                 return null;
             }
@@ -290,9 +305,12 @@ namespace GenericModel.Other
 
         #endregion Convert
 
-        public static string Sql_MakeTableAlias(string tableName, List<string> names, string between = "@@")
+        public static string Sql_MakeTableAlias(out string aliasPrefix, string tableName, List<string> names, string between = "@@")
         {
-            return string.Join(", ", names.ConvertAll(o => $"{tableName}.{o} AS {tableName}{between}{o} ").ToArray());
+            string tmp = tableName + between;
+            aliasPrefix = tmp;
+
+            return string.Join(", ", names.ConvertAll(o => $"{tableName}.{o} AS {tmp}{o} ").ToArray());
         }
     }
 }
