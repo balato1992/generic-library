@@ -1,5 +1,15 @@
 ﻿namespace GenericModel.Other
 {
+    /*
+    public override int GetHashCode()
+    {
+        HashHelper hashHelper = new HashHelper();
+        hashHelper.Add(Name);
+        hashHelper.Add(No);
+
+        return hashHelper.Get();
+    }
+    */
     public class HashHelper
     {
         private int Hash { get; set; }
